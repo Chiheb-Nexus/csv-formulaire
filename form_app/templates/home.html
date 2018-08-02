@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br \><br \><br \>
+<center>{{ message }}</center><br \>
+
+Quoi d'autres ?
+<ul>
+    <li><a href="{% url 'display' %}">Affichier le CSV avant de l'exporter</a></li>
+    <li><a href="{% url 'stream_csv' %}">Exporter directement le CSV</a></li>
+    <li><a href="{% url 'updateDB' %}">Mettre à jour la base de donnée</a></li>
+</ul>
+
+<br \><br \><br \>
+{% endblock %}

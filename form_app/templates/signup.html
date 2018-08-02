@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Sign up</title>
+{% endblock %}
+{% block content %}
+  <center><h2>Formulaire d'enregistrement</h2></center>
+  <div class="row">
+  <div class="col-md-6 col-sm-12 col-lg-6 col-md-offset-3">
+      <div class="panel panel-primary">
+            <div class="panel-heading">Veuillez entrer vos détails:</div>
+                <div class="panel-body">
+                <form method="post">
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <p>
+                        {{ field.label_tag }}<br>
+        
+                        {% if field.help_text %}
+                            <div data-toggle="popover" title="{{ field.help_text|safe }}">{{ field }}</div>
+                        {% else %}
+                            <div> {{ field }}</div>
+                        {% endif %}
+                        {% for error in field.errors %}
+                            <p style="color: red">{{ error }}</p>  
+                        {% endfor %}
+                    </p>
+                    {% endfor %}
+                <button type="submit" class="btn btn-primary center">Sign up</button>
+                </form>
+                </div>
+                <p>&nbsp;&nbsp;*champs requis</p>
+        </div>
+    </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="table-responsive">
+
+    <center><h2>Aperçu des données avant de les exporter</h2></center><br \><br \>
+
+<table style="width:100%" class="table table-bordered table-hover table-condensed">
+    <tr>
+        <th></th>
+        {% for role in roles %}
+            <th>
+                {{ role.roleID__roleName }}
+            </th>
+        {% endfor %}
+    </tr>
+    {% for person in persons %}
+        <tr>
+            <td>
+                {{ person.personName }}
+            </td>
+            {% for role in roles %}
+                {% if role.roleID__roleName == person.roleID.roleName %}
+                    <td>
+                        X
+                    </td>
+                {% else %}
+                    <td></td>
+                {% endif %}
+            {% endfor %}
+        </tr>
+    {% endfor %}
+    <tr>
+        <td>
+            Total
+        </td>
+        {% for role in roles %}
+            <td>
+                {{ role.num}}
+            </td>
+        {% endfor %}
+    </tr>
+
+
+</table>
+</div>
+
+<center><a href="{% url 'stream_csv' %}"><h4>Exporter en CSV</h4></a></div></center>
+{% endblock %}
