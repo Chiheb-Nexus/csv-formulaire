@@ -14,7 +14,7 @@ dockerpty==0.4.1
 docopt==0.6.2
 ecdsa==0.13
 eth-abi==1.2.2
-eth-account==0.2.3
+eth-account==0.5.9
 eth-hash==0.2.0
 eth-keyfile==0.5.1
 eth-keys==0.2.0b3
